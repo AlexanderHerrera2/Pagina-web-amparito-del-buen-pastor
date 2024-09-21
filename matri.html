@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Matrícula</title>
+  <link rel="stylesheet" href="css/matricula.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/matricula.js"></script>
+ 
+</head>
+<body>
+
+  <div class="row">
+    <section class="section">
+      <header>
+        <h3>Matricula</h3>
+        <h4>Por favor rellena con tu información</h4>
+      </header>
+      <main>
+        <form action="insert.php" method="post">
+          <h5>Datos del Representante</h5>
+          <div class="form-item box-item">
+            <input type="text" name="representante_nombre" placeholder="Nombre del Representante" required>
+            <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+          </div>
+          <div class="form-item box-item">
+            <input type="text" name="representante_apellido" placeholder="Apellido del Representante" required>
+            <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+          </div>
+          <div class="form-item box-item">
+            <input type="email" name="representante_correo" placeholder="Correo del Representante" required>
+            <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+            <small class="errorEmail"><i class="fa fa-asterisk" aria-hidden="true"></i> El correo no es válido</small>
+          </div>
+          <div class="form-item box-item">
+            <input type="text" name="representante_cedula" placeholder="Cédula del Representante" required>
+            <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+          </div>
+          <div class="form-item box-item">
+            <input type="text" name="representante_direccion" placeholder="Dirección del Representante" required>
+            <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+          </div>
+          <div class="form-item box-item">
+            <input type="text" name="representante_estado_civil" placeholder="Estado Civil del Representante" required>
+            <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+          </div>
+          <div class="form-item box-item">
+            <input type="text" name="representante_telefono" placeholder="Teléfono del Representante" required>
+            <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+            <small class="errorNum"><i class="fa fa-asterisk" aria-hidden="true"></i> Debe ser un número</small>
+            <small class="errorChar"><i class="fa fa-asterisk" aria-hidden="true"></i> Debe tener 10 dígitos</small>
+          </div>
+          
+          <h5>Datos del Estudiante</h5>
+          <div class="form-item box-item">
+            <input type="text" name="estudiante_nombre" placeholder="Nombre del Estudiante" required>
+            <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+          </div>
+          <div class="form-item box-item">
+            <input type="text" name="estudiante_apellido" placeholder="Apellido del Estudiante" required>
+            <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+          </div>
+          <div class="form-item box-item">
+            <input type="text" name="estudiante_cedula" placeholder="Cédula del Estudiante" required>
+            <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+          </div>
+          <div class="form-item box-item">
+            <input type="date" name="estudiante_fecha_nacimiento" placeholder="Fecha de Nacimiento del Estudiante" required>
+            <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+          </div>
+          <div class="form-item box-item">
+            <input type="text" name="estudiante_direccion" placeholder="Dirección del Estudiante" required>
+            <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+          </div>
+          <div class="form-item box-item">
+            <div class="form-item-triple">
+              <div class="radio-label">
+                <label class="label">Género del Estudiante</label>
+              </div>
+              <div class="form-item">
+                <input id="Masculino" type="radio" name="estudiante_genero" value="Masculino" required>
+                <label for="Masculino">Masculino</label>
+              </div>
+              <div class="form-item">
+                <input id="Femenino" type="radio" name="estudiante_genero" value="Femenino" required>
+                <label for="Femenino">Femenino</label>
+              </div>
+            </div>
+            <small class="errorOnce"><i class="fa fa-asterisk" aria-hidden="true"></i> Escoge al menos una opción</small>
+          </div>
+          <div class="form-item box-item">
+            <input type="text" name="estudiante_curso" placeholder="Curso del Estudiante" required>
+            <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+          </div>
+          <div class="form-item">
+            <button type="submit" class="submit">Enviar</button>
+          </div>
+        </form>
+      </main>
+      <footer>
+        <p>Amparito del Buen Pastor <a href="index.html">Inicio</a></p>
+      </footer>
+      <i class="wave"></i>
+    </section>
+  </div>
+
+</body>
+</html>
