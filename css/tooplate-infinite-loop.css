@@ -62,7 +62,7 @@ blockquote {
   position: absolute;
   width: 100%;
   z-index: 1000;
-  background-color: #333;
+  background-color: #012031;
   transition: all 0.3s ease;
 }
 
@@ -368,6 +368,11 @@ blockquote {
   color: #fff;
 }
 
+.social-nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 #global-social-networks .social-nav-item {
   font-size: 1.3rem;
   width: 3rem;
@@ -376,9 +381,9 @@ blockquote {
   margin-bottom: 5px;
   padding: .3em;
 }
-
+ 
 #global-social-networks .social-nav-item.facebook:hover {
-  background-color: #3b5998;
+  background-color: #005983 ;
 }
 
 #global-social-networks .social-nav-item.youtube:hover {
@@ -391,9 +396,32 @@ blockquote {
 }
 
 #global-social-networks .social-nav-item.instagram:hover {
-  background-color: #833ab4   ;
+  background-color: #700b41    ;
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
 /* slider section */
 .slider {
   width: 100%;
@@ -598,7 +626,7 @@ blockquote {
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
-  background-color: #3498db; /* Azul claro */
+  background-color: #012031; /* Azul claro */
   color: #fff; /* Blanco */
   border: none; /* Sin borde */
   padding: 10px 20px; /* Espacio interior */
