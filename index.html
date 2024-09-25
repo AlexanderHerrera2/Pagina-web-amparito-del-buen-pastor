@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="css/styles.css" />
 
   <!-- Scripts -->
+  <script src="js/cardslider.js"></script>
   <script src="js/slider.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -121,7 +122,7 @@
 
     <div class="tm-next tm-intro-next">
       <a href="#whywe" class="text-center tm-down-arrow-link">
-        <i class="fas fa-2x fa-arrow-down tm-down-arrow" ></i>
+        <i class="fas fa-2x fa-arrow-down tm-down-arrow"></i>
       </a>
     </div>
   </section>
@@ -129,30 +130,45 @@
   <section id="whywe" class="tm-section-pad-top">
 
     <div class="card-container">
-      <div class="card">
-        <div class="glass-effect"></div>
-        <h3>Enseñamos con valores cristianos</h3>
-        <p>Nuestra escuelita se encuentra en pifo.</p>
-        <a href="https://maps.app.goo.gl/eRoXT92dKMvmYDJcA" class="btn" target="_blank" rel="noopener">Lugar fisico</a>
+      <div class="card-slider">
+        <div class="card">
+          <div class="glass-effect"></div>
+          <h3>Enseñamos con valores cristianos</h3>
+          <p>Nuestra escuelita se encuentra en pifo.</p>
+          <a href="https://maps.app.goo.gl/eRoXT92dKMvmYDJcA" class="btn" target="_blank" rel="noopener">Lugar
+            fisico</a>
+        </div>
+        <div class="card">
+          <div class="glass-effect"></div>
+          <h3>Contamos con clases de musica</h3>
+          <img src="img/clasemusica.jpg">
+        </div>
+        <div class="card">
+          <div class="glass-effect"></div>
+          <h3>Contamos con clases de computacion</h3>
+          <img src="img/claserobotica.jpg">
+        </div>
+        <div class="card">
+          <div class="glass-effect"></div>
+          <h3>Contamos con clases de ingles</h3>
+          <img src="img/clasesidiomas.jpg">
+        </div>
+        <div class="card">
+          <div class="glass-effect"></div>
+          <h3>Matriculas</h3>
+          <p>Llena este formulario para tener una prematricula.</p>
+          <a href="matri.html" class="btn">Matricula</a>
+        </div>
+        <div class="card">
+          <div class="glass-effect"></div>
+          <h3>Nuestro pasado</h3>
+          <p>Hecha un vistaso hacia nuestro pasado</p>
+          <a href="galeria.html" class="btn">Ver nuestro pasado</a>
+        </div>
       </div>
-      <div class="card">
-        <div class="glass-effect"></div>
-        <h3>Contamos hasta 7°</h3>
-        <p>Enseñamos Robotica</p>
-        <p>Enseñamos Musica</p>
-        <p>Enseñamos Ingles</p>
-      </div>
-      <div class="card">
-        <div class="glass-effect"></div>
-        <h3>Matriculas</h3>
-        <p>Llena este formulario para tener una prematricula.</p>
-        <a href="matri.html" class="btn">Matricula</a>
-      </div>
-      <div class="card">
-        <div class="glass-effect"></div>
-        <h3>Nuestro pasado</h3>
-        <p>Hecha un vistaso hacia nuestro pasado</p>
-        <a href="galeria.html" class="btn">Ver nuestro pasado</a>
+      <div class="card-slider-nav">
+        <button class="prevvv">‹</button>
+        <button class="nexttt">›</button>
       </div>
     </div>
 
@@ -261,6 +277,31 @@
     </div>
   </section>
 
+  <section id="conteo">
+    <div class="wrapperr">
+      <div class="container-conteo">
+        <i class="fas fa-graduation-cap"></i>
+        <span class="num" data-val="400">000</span>
+        <span class="text">Estudiantes graduados</span>
+      </div>
+      <div class="container-conteo">
+        <i class="fas fa-user-graduate"></i>
+        <span class="num" data-val="120">000</span>
+        <span class="text">Estudiantes Actuales</span>
+      </div>
+      <div class="container-conteo">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <span class="num" data-val="12">000</span>
+        <span class="text">Docentes de calidad</span>
+      </div>
+      <div class="container-conteo">
+        <i class="fas fa-clock"></i>
+        <span class="num" data-val="70">000</span>
+        <span class="text">Años enseñando</span>
+      </div>
+    </div>
+  </section>
+
   <section id="gallery">
     <div class="slider">
       <!-- fade css -->
@@ -326,7 +367,7 @@
   <script src="slick/slick.min.js"></script>
   <script src="js/scripts.js"></script>
   <script src="js/slider.js"></script>
-
+  <script src="js/conteo.js"></script>
 
 </body>
 

@@ -419,6 +419,48 @@ blockquote {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+/* conteo section */
+#conteo {
+  background-color: #002f4b;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.wrapperr {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.container-conteo {
+  flex-basis: 45%; /* Establece el ancho de cada contenedor en 45% */
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.container-conteo i {
+  font-size: 24px;
+  color: #002f4b;
+  margin-bottom: 10px;
+}
+
+.container-conteo .num {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.container-conteo .text {
+  font-size: 18px;
+  color: #666;
+}
 /* slider section */
 .slider {
   width: 100%;
@@ -613,6 +655,8 @@ blockquote {
   text-align: center;
   position: relative;
   overflow: hidden;
+  flex: 0 0 300px; /* Ancho fijo de cada card */
+  margin: 30px;
 }
 
 .card .btn {
@@ -693,6 +737,37 @@ blockquote {
   height: 300%;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.25), transparent 30%);
   animation: animate 5s linear infinite;
+}
+.card-slider {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 20px;
+}
+
+.card-slider-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.prevvv, .nexttt {
+  background-color: #012031; /* Azul claro */
+  color: #fff; /* Blanco */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espacio interior */
+  font-size: 16px; /* Tamaño de fuente */
+  font-weight: bold; /* Fuente en negrita */
+  border-radius: 5px; /* Esquinas redondas */
+  cursor: pointer; /* Cursor en forma de mano */
+}
+
+.prevvv:hover, .nexttt:hover {
+  background-color: #2ecc71; /* Verde claro al hacer clic */
+}
+
+.card-slider::-webkit-scrollbar {
+  display: none;
 }
 
 @keyframes animate {
