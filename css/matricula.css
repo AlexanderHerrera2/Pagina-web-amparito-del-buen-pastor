@@ -10,7 +10,10 @@ html {
     box-sizing: inherit;
 }
 body {
-    background-color: #524F81;
+    background-color: #002f4b;
+    /*background-image: url(../img/logo.jpg); 
+    background-repeat: repeat;  
+    background-size: 500px 500px;  */ 
     font-family: 'PT Sans', sans-serif;
     font-size: 16px;
     line-height: 1.428571429;
