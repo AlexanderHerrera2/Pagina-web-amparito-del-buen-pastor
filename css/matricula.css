@@ -79,11 +79,12 @@ footer{
         }
     }
 }
-form{
+form {
     height: 100%;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    flex-wrap: wrap; /* Permitir que las secciones pasen a la siguiente línea si la pantalla es pequeña */
+    justify-content: space-between; /* Añade espacio entre las secciones */
+    gap: 16px; /* Espacio entre los elementos para que no estén pegados */
 }
 .label{
     color: rgba(226, 227, 232, .75);
@@ -214,4 +215,19 @@ small{
     transform: rotate(360deg);
   }
 }
+
+/* Hacemos que cada sección del formulario sea de un ancho fijo */
+.form-section {
+    flex: 1 1 calc(25% - 16px); /* Las secciones ocuparán el 25% del ancho disponible, restando el gap */
+    padding: 16px;
+    border: 1px solid #75759E;
+    border-radius: 10px;
+    background-color: #3D4067;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
 
