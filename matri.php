@@ -19,7 +19,7 @@
         <h4>Separa tu cupo</h4>
       </header>
       <main>
-        <form action="insert.php" method="post">
+        <form action="conection.php" method="post">
 
           <div class="form-section">
             <h5>Datos del Padre o Tutor</h5>
@@ -58,6 +58,16 @@
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
             </div>
             <div class="form-item box-item">
+              <input type="email" name="student_email" placeholder="Correo del Estudiante" required>
+              <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+            </div>
+            <div class="form-item box-item">
+              <input type="text" name="student_cedula" placeholder="Cédula del Estudiante" required>
+              <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+            </div>
+
+
+            <div class="form-item box-item">
               <input type="date" name="student_date_of_birth" placeholder="Fecha de Nacimiento del Estudiante" required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
             </div>
@@ -83,35 +93,38 @@
                   <label class="label">Género del Estudiante</label>
                 </div>
                 <div class="form-item">
-                  <input id="Masculino" type="radio" name="student_gender" value="Male" required>
+                  <input id="Masculino" type="radio" name="student_gender" value="Masculino" required>
                   <label for="Masculino">Masculino</label>
                 </div>
                 <div class="form-item">
-                  <input id="Femenino" type="radio" name="student_gender" value="Female" required>
+                  <input id="Femenino" type="radio" name="student_gender" value="Femenino" required>
                   <label for="Femenino">Femenino</label>
                 </div>
               </div>
               <small class="errorOnce"><i class="fa fa-asterisk" aria-hidden="true"></i> Escoge al menos una
                 opción</small>
             </div>
-            <h5>Seleccionar Curso</h5>
             <div class="form-item box-item">
               <label for="course_id">Seleccione un curso:</label>
               <select name="course_id" id="course" required>
                 <option value="">--Seleccione un curso--</option>
-                <!-- Aquí el código PHP para cargar los cursos desde la base de datos -->
+                <!-- Código PHP para cargar los cursos desde la base de datos -->
                 <?php
-              include './conexion.php';
-              $sql_courses = "SELECT course_id, course_name FROM courses";
-              $res_courses = mysqli_query($con, $sql_courses);
-              while ($row = mysqli_fetch_assoc($res_courses)) {
-                  echo "<option value='{$row['course_id']}'>{$row['course_name']}</option>";
-              }
-              ?>
+                  include './conexion.php';
+                  $sql_courses = "SELECT course_id, course_name, max_students, enrolled_students FROM courses";
+                  $res_courses = mysqli_query($con, $sql_courses);
+                  while ($row = mysqli_fetch_assoc($res_courses)) {
+                      $available_slots = $row['max_students'] - $row['enrolled_students'];
+                      if ($available_slots > 0) {
+                        echo "<option value='{$row['course_id']}'>{$row['course_name']} - Cupos disponibles: $available_slots</option>";
+                      } else {
+                          echo "<option value='' disabled>{$row['course_name']} - No hay cupos disponibles</option>";
+                      }
+                  }
+                ?>
               </select>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
             </div>
-          </div>
 
           <div class="form-section">
             <h5>Contacto de Emergencia</h5>
@@ -137,7 +150,7 @@
         </form>
       </main>
       <footer>
-        <p>Amparito del Buen Pastor <a href="index.html">Inicio</a></p>
+        <p> <a href="index.html">Amparito del Buen Pastor</a></p>
       </footer>
       <i class="wave"></i>
     </section>

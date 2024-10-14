@@ -1,13 +1,15 @@
 <?php
     $user="root";
-    $pass="";
-    $db="amparito";
-    $server="127.0.0.1:33065";
+    $pass="1234";
+    $db="school_enrollment";
+    $server="127.0.0.1";
+    $port = 3306; 
  
-    $con=mysqli_connect($server,$user,$pass,$db);
-    if($con){
+    $con = mysqli_connect($server, $user, $pass, $db, $port);
+    if(!$con) {
+        die("Conexión fallida: " . mysqli_connect_error());
+    } else {
         echo "Conexión satisfactoria";
-    }else{
-        echo "Conexión fallida";
     }
+    
 ?>
