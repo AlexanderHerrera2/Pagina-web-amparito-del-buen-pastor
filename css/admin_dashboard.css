@@ -1,0 +1,55 @@
+/* admin_dashboard.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.dashboard-container {
+    padding: 20px;
+}
+
+.dashboard-header {
+    margin-bottom: 20px;
+}
+
+.dashboard-header h2 {
+    margin: 0;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #5cb85c;
+    color: white;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tr:hover {
+    background-color: #f1f1f1;
+}
+.submit {
+    background-color: #4CAF50; /* verde */
+    color: #fff; /* blanco */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .submit:hover {
+    background-color: #3e8e41; /* verde oscuro */
+  }

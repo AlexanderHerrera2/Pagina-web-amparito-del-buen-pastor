@@ -19,8 +19,10 @@
         <h4>Separa tu cupo</h4>
       </header>
       <main>
+      <a href="aut.php" title="Autenticación">
+              <i class="fas fa-user">as</i>
+            </a>
         <form action="conection.php" method="post">
-
           <div class="form-section">
             <h5>Datos del Padre o Tutor</h5>
             <div class="form-item box-item">
