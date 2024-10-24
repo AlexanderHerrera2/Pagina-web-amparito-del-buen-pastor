@@ -45,7 +45,7 @@ $last_student_id = mysqli_insert_id($con);
 
 // 2. Insertar datos en la tabla de padres/tutores (parents_guardians)
 $sql_parents_guardians = "INSERT INTO parents_guardians (
-    first_name, last_name, email, phone_number, relationship_to_student, student_id
+    parent_first_name, parent_last_name, email, phone_number, relationship_to_student, student_id
 ) VALUES (
     '$parent_first_name', '$parent_last_name', '$parent_email', '$parent_phone_number', 
     '$relationship_to_student', '$last_student_id'

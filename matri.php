@@ -5,9 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulario de Matrícula</title>
+
   <link rel="stylesheet" href="css/matricula.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="js/matricula.js"></script>
 </head>
 
 <body>
@@ -17,11 +19,14 @@
       <header>
         <h3>Inscripciones</h3>
         <h4>Separa tu cupo</h4>
+        <a href="aut.php" title="Autenticación">
+              <i class="fas fa-user"></i>
+            </a>
       </header>
       <main>
-      <a href="aut.php" title="Autenticación">
-              <i class="fas fa-user">as</i>
-            </a>
+
+      
+
         <form action="conection.php" method="post">
           <div class="form-section">
             <h5>Datos del Padre o Tutor</h5>

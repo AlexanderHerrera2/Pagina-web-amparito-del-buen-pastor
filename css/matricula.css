@@ -1,233 +1,152 @@
-@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700');
-html {
-    font-size: 10px;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    box-sizing: border-box;
+/* Base styles matching the index theme */
+:root {
+    --primary-color: #012031;
+    --secondary-color: #00a7ff;
+    --accent-color: #2ecc71;
+    --text-color: #505050; /* Darker text color */
+    --background-color: #e7e6e6;
+    --white-color: #fff;
+    --border-color: #bdbdbd; /* Darker border color */
+    --line-color: #979797; /* Darker line color */
 }
-*, *:before, *:after {
+
+body {
+    font-family: "Raleway", sans-serif;
+    font-size: 1.2em;
+    background-color: var(--background-color);
+    color: var(--text-color);
     margin: 0;
     padding: 0;
-    box-sizing: inherit;
 }
-body {
-    background-color: #002f4b;
-    /*background-image: url(../img/logo.jpg); 
-    background-repeat: repeat;  
-    background-size: 500px 500px;  */ 
-    font-family: 'PT Sans', sans-serif;
-    font-size: 16px;
-    line-height: 1.428571429;
-    font-weight: 400;
-    color: #fff;
+
+/* Form container styles */
+.section {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: var(--white-color);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(1, 32, 49, 0.3); /* Darker shadow */
+    padding: 30px;
+    border: 1px solid var(--border-color); /* Added border */
 }
-.row{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.section{
-    background-color: #3D4067;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-header,
-main,
-footer{
-    display: block;
-    position: relative;
-    z-index: 1;
-}
-header{
-    padding: 48px;
-    @media (max-width: 440px){
-        padding: 48px 24px;
-    }
-    >h3{
-        font-size: 44px;
-        font-weight: 700;
-        margin-bottom: 8px;
-    }
-    >h4{
-        font-size: 22px;
-        font-weight: 400;
-        letter-spacing: 1px;
-    }
-}
-main{
-    flex: 1;
-    padding: 0 48px;
-    @media (max-width: 440px){
-        padding: 0 24px;
-    }
-}
-footer{
-    width: 100%;
-    background-color: #524F81;
-    padding: 16px;
-    align-self: center;
+
+/* Header styles */
+header {
     text-align: center;
-    margin-top: 32px;
-    a{
-        color: #fff;
-        font-weight: 700;
-        text-decoration: none;
-        &:hover{
-            text-decoration: underline;
-        }
-    }
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--line-color); /* Darker bottom border */
+    padding-bottom: 20px;
 }
-form {
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap; /* Permitir que las secciones pasen a la siguiente línea si la pantalla es pequeña */
-    justify-content: space-between; /* Añade espacio entre las secciones */
-    gap: 16px; /* Espacio entre los elementos para que no estén pegados */
+
+header h3 {
+    color: var(--primary-color);
+    font-size: 2.6rem;
+    margin-bottom: 10px;
 }
-.label{
-    color: rgba(226, 227, 232, .75);
-    font-size: 16px;
+
+header h4 {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
 }
-small{
-    display: none;
-    &.errorOnce{
-        margin-top: 2px;
-    }
+
+/* Form section styles */
+.form-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 2px solid var(--border-color); /* Thicker, darker border */
+    border-radius: 10px;
 }
-.form-item{
-    input[type="text"],
-    input[type="number"],
-    input[type="email"]{
-        display: block;
-        color: #E2E3E8;
-        font-size: 16px;
-        width: 100%;
-        background-color: transparent;
-        border: none;
-        border-bottom: 1px solid #75759E;
-        padding: 8px 0;
-        appearance: none;
-        outline: none;
-    }
-    small{
-        /*letter-spacing: 1px;*/
-    }
-    i{
-        font-size: 12px;
-        color: red;
-    }
+
+.form-section h5 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--secondary-color); /* Thicker bottom border */
 }
-.box-item{
-    height: 60px;
-    margin-bottom: 16px;
+
+/* Form input styles */
+.form-item {
+    margin-bottom: 20px;
+    position: relative;
 }
-.form-item-double{
-    display: flex;
-    .form-item{
-        flex: 1 1 auto;
-    }
-    .form-item:nth-child(1){
-        padding-right: 16px;
-    }
-    .form-item:nth-child(2){
-        padding-left: 16px;
-    }
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--border-color); /* Thicker border */
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
-.form-item-triple{
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 8px rgba(0, 167, 255, 0.4); /* More visible focus shadow */
+    outline: none;
+}
+
+/* Radio button styles */
+.form-item-triple {
     display: flex;
     align-items: center;
-    padding-top: 6px;
-    .radio-label{
-        flex: 1 1 auto;
-        text-align: left;
-        label{
-            display: inline-block;
-            vertical-align: middle;
-        }
-    }
-    .form-item{
-        flex: 3 1 auto;
-        text-align: center;
-        margin: 0;
-        label,input[type="radio"]{
-            display: inline-block;
-            vertical-align: middle;
-            margin: 0 4px;
-        }
-    }
+    gap: 20px;
+    padding: 15px;
+    border: 2px solid var(--border-color); /* Added border to radio section */
+    border-radius: 5px;
 }
 
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color: rgba(226, 227, 232, .75);
-    font-size: 16px;
+.radio-label {
+    color: var(--primary-color);
+    font-weight: bold;
 }
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: rgba(226, 227, 232, .75);
-    font-size: 16px;
-    opacity:  1;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: rgba(226, 227, 232, .75);
-    font-size: 16px;
-    opacity:  1;
-}
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: rgba(226, 227, 232, .75);
-    font-size: 16px;
-}
-::-ms-input-placeholder { /* Microsoft Edge */
-    color: rgba(226, 227, 232, .75);
-    font-size: 16px;
-}
-.submit{
-    display: inline-block;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    padding: 8px 48px;
-    margin-top: 32px;
-    border: 2px solid #75759E;
-    border-radius: 20px;
+
+/* Submit button styles */
+.submit {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
     cursor: pointer;
-    transition: all ease .2s;
-    &:hover{
-        background-color: #EDA261;
-        border: 2px solid #EDA261;
+    transition: all 0.3s ease;
+    width : 100%;
+    margin-top: 20px;
+    border-bottom: 3px solid var(--line-color); /* Added darker bottom border */
+}
+
+.submit:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Error message styles */
+small.errorReq,
+small.errorEmail,
+small.errorNum,
+small.errorChar {
+    color: #ff3333;
+    font-size: 0.8rem;
+    display: none;
+    margin-top: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+     .section {
+        max-width: 600px;
     }
 }
-.wave{
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 800px;
-  height: 800px;
-  margin-top: -600px;
-  margin-left: -400px;
-  background: #252E45;
-  border-radius: 40%;
-  animation: shift 20s infinite linear;
-  z-index: 0;
+
+@media (max-width: 480px) {
+     .section {
+        max-width: 400px;
+    }
 }
-@keyframes shift{
-  from{
-    transform: rotate(360deg);
-  }
-}
-
-/* Hacemos que cada sección del formulario sea de un ancho fijo */
-.form-section {
-    flex: 1 1 calc(25% - 16px); /* Las secciones ocuparán el 25% del ancho disponible, restando el gap */
-    padding: 16px;
-    border: 1px solid #75759E;
-    border-radius: 10px;
-    background-color: #3D4067;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-
-
