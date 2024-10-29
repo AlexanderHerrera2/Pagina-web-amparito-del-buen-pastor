@@ -17,16 +17,44 @@
   <div class="row">
     <section class="section">
       <header>
-        <h3>Inscripciones</h3>
-        <h4>Separa tu cupo</h4>
-        <a href="aut.php" title="Autenticación">
+        <div class="header-content">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo with three children's faces and text 'AMPARITO DEL BUEN PASTOR'" width="100" height="100">
+            </div>
+            <div class="text">
+                <h1>INSTITUCION EDUCATIVA PARTICULAR<br>“AMPARITO DEL BUEN PASTOR”</h1>
+                <p>Dirección: Ignacio Fernández Salvador S/N</p>
+                <p>Teléfono: 0998741234 / 0998765432</p>
+                <p>Email: <span class="email">adbp@yahoo.com</span></p>
+                <p>PIFO, ECUADOR</p>
+                <a href="aut.php" title="Autenticación">
               <i class="fas fa-user"></i>
             </a>
+            </div>
+        </div>
       </header>
       <main>
+        <h2>
+        FORMULARIO PARA MATRICULAS AÑO LECTIVO 2024 - 2025
+        </h2>
+        <p>
+        Estimado Representante:
+        </p>
+        <p>
+        Reciba una cordial bienvenida a la Familia Amparito del Buen Pastor.
+        Somos una institución educativa cristiana con mas de 20 años de trayectoria.
+        Es nuestro placer el poder servirles en el campo de la educación de su representado.
+        Sepa que todos estamos comprometidos a brindarle una educación de calidad basados 
+        en principios cristianos.
+        </p>
+        <p>Atentamente</p>
+        <p>Asociación Amparito del Buen Pastor</p>
+        <p>Proverbios 22:6</p>
+        <p>"Instruye al niño en el camino correcto y aun en su vejez no lo abandonará."</p>
+        <h4>NOTA:</h4>
+        <p>La Institución tiene una política de <b>NO REEMBOLSOS</b> una vez realizado el pago.</p>
 
-      
-
+        
         <form action="conection.php" method="post">
           <div class="form-section">
             <h5>Datos del Padre o Tutor</h5>
@@ -159,7 +187,6 @@
       <footer>
         <p> <a href="index.html">Amparito del Buen Pastor</a></p>
       </footer>
-      <i class="wave"></i>
     </section>
   </div>
 

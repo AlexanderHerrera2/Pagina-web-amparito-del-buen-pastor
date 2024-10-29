@@ -1,15 +1,14 @@
 /* Base styles matching the index theme */
 :root {
-    --primary-color: #012031;
-    --secondary-color: #00a7ff;
-    --accent-color: #2ecc71;
-    --text-color: #505050; /* Darker text color */
-    --background-color: #e7e6e6;
-    --white-color: #fff;
-    --border-color: #bdbdbd; /* Darker border color */
-    --line-color: #979797; /* Darker line color */
-}
-
+            --primary-color: #012031;
+            --secondary-color: #00a7ff;
+            --accent-color: #2ecc71;
+            --text-color: #505050;
+            --background-color: #e7e6e6;
+            --white-color: #fff;
+            --border-color: #bdbdbd;
+            --line-color: #979797;
+        }
 body {
     font-family: "Raleway", sans-serif;
     font-size: 1.2em;
@@ -34,7 +33,7 @@ body {
 header {
     text-align: center;
     margin-bottom: 30px;
-    border-bottom: 2px solid var(--line-color); /* Darker bottom border */
+    border-bottom: 2px solid var(--line-color);
     padding-bottom: 20px;
 }
 
@@ -47,6 +46,49 @@ header h3 {
 header h4 {
     color: var(--secondary-color);
     font-size: 1.5rem;
+}
+
+/* Estilos para el contenedor del encabezado */
+.header-content {
+    background-color: #a3c6f1; /* Fondo similar al color en la imagen */
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrar el contenido horizontalmente */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el logo */
+.header-content .logo {
+    margin-right: 20px;
+}
+
+.header-content .logo img {
+    border-radius: 10px;
+    width: 160px;
+    height: 160px;
+}
+
+/* Estilos para el texto en el encabezado */
+.header-content .text {
+    color: #000;
+    text-align: center;
+}
+
+.header-content .text h1 {
+    font-size: 1.5rem; /* Tamaño de fuente ajustado */
+    margin: 0;
+}
+
+.header-content .text p {
+    margin: 2px 0;
+    font-size: 0.9rem;
+}
+
+.header-content .text .email {
+    color: #1b1b41;
+    font-weight: bold;
 }
 
 /* Form section styles */
