@@ -657,6 +657,7 @@ blockquote {
 .card {
   width: var(--card-width);
   height: var(--card-height);
+  height: 450px; /* Aumenta la altura de la card */
   background-color: #fff;
   border: 1px solid #012031; /* Cambio de color del borde a #012031 */
   border-radius: 15px;
@@ -665,7 +666,7 @@ blockquote {
   text-align: center;
   position: relative;
   overflow: hidden;
-  flex: 0 0 300px; /* Ancho fijo de cada card */
+  flex: 0 0 350px; /* Ancho fijo de cada card */
   margin: 30px;
 }
 
@@ -758,7 +759,7 @@ blockquote {
 .card-slider-nav {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 20px 80px;
 }
 
 .prevvv, .nexttt {
@@ -770,6 +771,7 @@ blockquote {
   font-weight: bold; /* Fuente en negrita */
   border-radius: 5px; /* Esquinas redondas */
   cursor: pointer; /* Cursor en forma de mano */
+  margin: 0 5px;
 }
 
 .prevvv:hover, .nexttt:hover {
@@ -778,6 +780,21 @@ blockquote {
 
 .card-slider::-webkit-scrollbar {
   display: none;
+}
+/* Estilo específico para los iconos en las cards */
+.card i {
+  font-size: 80px;
+  background: linear-gradient(45deg, #012031, #00a7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+/* Opcional: efecto hover para los iconos */
+.card i:hover {
+  transform: scale(1.1); /* Hace que el icono crezca ligeramente al pasar el mouse */
+  color: #00a7ff; /* Cambia a un azul más claro al pasar el mouse */
 }
 
 @keyframes animate {
@@ -796,4 +813,51 @@ blockquote {
   100% {
       box-shadow: 0 0 20px rgba(1, 32, 49, 0.8); /* Ajuste del color de la sombra al color de fondo */
   }
+}
+/* Ajuste general del footer */
+footer {
+  background-color: #f3f4f6; /* Elige un color suave que combine con la paleta */
+  padding: 20px 0;
+  font-size: 0.85em; /* Letras más pequeñas */
+  color: #4a4a4a;
+}
+
+/* Separadores de sección */
+footer .footer-section {
+  padding: 15px 0;
+  border-top: 1px solid #d1d5db; /* Línea sutil entre secciones */
+}
+
+footer .footer-section:first-child {
+  border-top: none; /* Elimina la línea superior en la primera sección */
+}
+
+/* Estilos para los enlaces */
+footer a {
+  color: #6366f1; /* Color de enlace que resalte y combine */
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: #4f46e5; /* Color de hover más oscuro */
+}
+
+/* Estilo de títulos en el footer */
+footer h4 {
+  font-weight: bold;
+  font-size: 1em;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+
+/* Ajuste de iconos y redes sociales */
+footer .social-icons a {
+  margin: 0 5px;
+  color: #6b7280;
+  font-size: 1.2em;
+}
+
+footer .social-icons a:hover {
+  color: #4f46e5;
 }
