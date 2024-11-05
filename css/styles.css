@@ -761,6 +761,21 @@ blockquote {
   justify-content: space-between;
   padding: 20px 80px;
 }
+.image-container {
+  width: 100%;
+  height: 300px; /* Ajusta esta altura según el diseño que prefieras */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+/* Ajuste de la imagen dentro del contenedor */
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra todo el contenedor sin deformarse */
+    object-position: center; /* Centra la imagen */
+}
 
 .prevvv, .nexttt {
   background-color: #012031; /* Azul claro */
@@ -816,7 +831,7 @@ blockquote {
 }
 /* Ajuste general del footer */
 footer {
-  background-color: #f3f4f6; /* Elige un color suave que combine con la paleta */
+  background-color: #002f4b; /* Elige un color suave que combine con la paleta */
   padding: 20px 0;
   font-size: 0.85em; /* Letras más pequeñas */
   color: #4a4a4a;

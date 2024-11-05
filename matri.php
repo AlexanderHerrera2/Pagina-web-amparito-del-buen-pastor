@@ -55,105 +55,99 @@
         <p>La Institución tiene una política de <b>NO REEMBOLSOS</b> una vez realizado el pago.</p>
 
         
-        <form action="conection.php" method="post">
+        <form action="insercionmatri.php" method="post">
           <div class="form-section">
-            <h5>Datos del Padre o Tutor</h5>
+            <h5>Datos del Padre o Representante</h5>
             <div class="form-item box-item">
-              <input type="text" name="parent_first_name" placeholder="Nombre del Padre/Tutor" required>
+              <input type="text" name="nombresRepresentante" placeholder="Nombre del Padre/Tutor" required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
             </div>
             <div class="form-item box-item">
-              <input type="text" name="parent_last_name" placeholder="Apellido del Padre/Tutor" required>
+              <input type="text" name="apellidosRepresentante" placeholder="Apellido del Padre/Tutor" required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
             </div>
             <div class="form-item box-item">
-              <input type="email" name="parent_email" placeholder="Correo del Padre/Tutor" required>
+              <input type="email" name="correoRepresentante" placeholder="Correo del Padre/Tutor" required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
               <small class="errorEmail"><i class="fa fa-asterisk" aria-hidden="true"></i> El correo no es válido</small>
             </div>
             <div class="form-item box-item">
-              <input type="text" name="parent_phone_number" placeholder="Teléfono del Padre/Tutor" required>
+              <input type="text" name="telefono" placeholder="Teléfono del Padre/Tutor" required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
               <small class="errorNum"><i class="fa fa-asterisk" aria-hidden="true"></i> Debe ser un número</small>
               <small class="errorChar"><i class="fa fa-asterisk" aria-hidden="true"></i> Debe tener 10 dígitos</small>
             </div>
             <div class="form-item box-item">
-              <input type="text" name="relationship_to_student" placeholder="Relación con el Estudiante" required>
+              <input type="text" name="relacionConElEstudiante" placeholder="Relación con el Estudiante" required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
             </div>
           </div>
           <div class="form-section">
             <h5>Datos del Estudiante</h5>
             <div class="form-item box-item">
-              <input type="text" name="student_first_name" placeholder="Nombre del Estudiante" required>
+              <input type="text" name="nombresEstudiante" placeholder="Nombre del Estudiante" required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
             </div>
             <div class="form-item box-item">
-              <input type="text" name="student_last_name" placeholder="Apellido del Estudiante" required>
+              <input type="text" name="apellidosEstudiante" placeholder="Apellido del Estudiante" required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
             </div>
             <div class="form-item box-item">
-              <input type="email" name="student_email" placeholder="Correo del Estudiante" required>
+              <input type="text" name="cedulaEstudiante" placeholder="Cédula del Estudiante" required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
             </div>
             <div class="form-item box-item">
-              <input type="text" name="student_cedula" placeholder="Cédula del Estudiante" required>
-              <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
-            </div>
-
-
-            <div class="form-item box-item">
-              <input type="date" name="student_date_of_birth" placeholder="Fecha de Nacimiento del Estudiante" required>
+              <input type="date" name="fechaDeNacimiento" placeholder="Fecha de Nacimiento del Estudiante" required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
             </div>
             <div class="form-item box-item">
-              <input type="text" name="student_address" placeholder="Dirección del Estudiante" required>
+              <input type="text" name="direccionEstudiante" placeholder="Dirección del Estudiante" required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
             </div>
             <div class="form-item box-item">
-              <input type="text" name="student_city" placeholder="Ciudad del Estudiante" required>
+              <input type="text" name="ciudad" placeholder="Ciudad del Estudiante" required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
             </div>
             <div class="form-item box-item">
-              <input type="text" name="student_state" placeholder="Estado/Provincia del Estudiante" required>
+              <input type="text" name="estado" placeholder="Estado/Provincia del Estudiante" required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
             </div>
             <div class="form-item box-item">
-              <input type="text" name="student_zip_code" placeholder="Código Postal del Estudiante" required>
+              <input type="text" name="códigoPostal" placeholder="Código Postal del Estudiante" required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
             </div>
             <div class="form-item box-item">
+            <small class="errorOnce"><i class="fa fa-asterisk" aria-hidden="true"></i> Escoge al menos una
+            opción</small>
               <div class="form-item-triple">
                 <div class="radio-label">
                   <label class="label">Género del Estudiante</label>
                 </div>
                 <div class="form-item">
-                  <input id="Masculino" type="radio" name="student_gender" value="Masculino" required>
+                  <input id="Masculino" type="radio" name="genero" value="Masculino" required>
                   <label for="Masculino">Masculino</label>
                 </div>
                 <div class="form-item">
-                  <input id="Femenino" type="radio" name="student_gender" value="Femenino" required>
+                  <input id="Femenino" type="radio" name="genero" value="Femenino" required>
                   <label for="Femenino">Femenino</label>
                 </div>
               </div>
-              <small class="errorOnce"><i class="fa fa-asterisk" aria-hidden="true"></i> Escoge al menos una
-                opción</small>
             </div>
             <div class="form-item box-item">
-              <label for="course_id">Seleccione un curso:</label>
-              <select name="course_id" id="course" required>
+              <label for="idCurso">Seleccione un curso:</label>
+              <select name="idCurso" id="cursos" required>
                 <option value="">--Seleccione un curso--</option>
                 <!-- Código PHP para cargar los cursos desde la base de datos -->
                 <?php
                   include './conexion.php';
-                  $sql_courses = "SELECT course_id, course_name, max_students, enrolled_students FROM courses";
+                  $sql_courses = "SELECT idCurso, nombreCurso, maxEstudiantes, estudiantesMatriculados FROM cursos";
                   $res_courses = mysqli_query($con, $sql_courses);
                   while ($row = mysqli_fetch_assoc($res_courses)) {
-                      $available_slots = $row['max_students'] - $row['enrolled_students'];
+                      $available_slots = $row['maxEstudiantes'] - $row['estudiantesMatriculados'];
                       if ($available_slots > 0) {
-                        echo "<option value='{$row['course_id']}'>{$row['course_name']} - Cupos disponibles: $available_slots</option>";
+                        echo "<option value='{$row['idCurso']}'>{$row['nombreCurso']} - Cupos disponibles: $available_slots</option>";
                       } else {
-                          echo "<option value='' disabled>{$row['course_name']} - No hay cupos disponibles</option>";
+                          echo "<option value='' disabled>{$row['nombreCurso']} - No hay cupos disponibles</option>";
                       }
                   }
                 ?>
@@ -164,17 +158,17 @@
           <div class="form-section">
             <h5>Contacto de Emergencia</h5>
             <div class="form-item box-item">
-              <input type="text" name="emergency_contact_name" placeholder="Nombre del Contacto de Emergencia" required>
+              <input type="text" name="nombreContacto" placeholder="Nombre del Contacto de Emergencia" required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
             </div>
             <div class="form-item box-item">
-              <input type="text" name="emergency_contact_phone_number" placeholder="Teléfono del Contacto de Emergencia"
+              <input type="text" name="telefonoContacto" placeholder="Teléfono del Contacto de Emergencia"
                 required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
               <small class="errorNum"><i class="fa fa-asterisk" aria-hidden="true"></i> Debe ser un número</small>
             </div>
             <div class="form-item box-item">
-              <input type="text" name="relationship_to_student_emergency" placeholder="Relación con el Estudiante"
+              <input type="text" name="relacionContacto" placeholder="Relación con el Estudiante"
                 required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
             </div>
