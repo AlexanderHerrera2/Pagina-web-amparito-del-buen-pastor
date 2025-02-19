@@ -67,19 +67,21 @@
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
             </div>
             <div class="form-item box-item">
-              <input type="email" name="correoRepresentante" placeholder="Correo del Padre/Tutor" required>
-              <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
-              <small class="errorEmail"><i class="fa fa-asterisk" aria-hidden="true"></i> El correo no es válido</small>
-            </div>
-            <div class="form-item box-item">
-              <input type="text" name="telefono" placeholder="Teléfono del Padre/Tutor" required>
+              <input type="text" name="cedulaRepresentante" placeholder="Teléfono del Padre/Tutor" required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
               <small class="errorNum"><i class="fa fa-asterisk" aria-hidden="true"></i> Debe ser un número</small>
               <small class="errorChar"><i class="fa fa-asterisk" aria-hidden="true"></i> Debe tener 10 dígitos</small>
             </div>
             <div class="form-item box-item">
-              <input type="text" name="relacionConElEstudiante" placeholder="Relación con el Estudiante" required>
+              <input type="text" name="telefonoRepresentante" placeholder="Teléfono del Padre/Tutor" required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+              <small class="errorNum"><i class="fa fa-asterisk" aria-hidden="true"></i> Debe ser un número</small>
+              <small class="errorChar"><i class="fa fa-asterisk" aria-hidden="true"></i> Debe tener 10 dígitos</small>
+            </div>
+            <div class="form-item box-item">
+              <input type="email" name="emailRepresentante" placeholder="Correo del Padre/Tutor" required>
+              <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+              <small class="errorEmail"><i class="fa fa-asterisk" aria-hidden="true"></i> El correo no es válido</small>
             </div>
           </div>
           <div class="form-section">
@@ -140,14 +142,14 @@
                 <!-- Código PHP para cargar los cursos desde la base de datos -->
                 <?php
                   include './conexion.php';
-                  $sql_courses = "SELECT idCurso, nombreCurso, maxEstudiantes, estudiantesMatriculados FROM cursos";
+                  $sql_courses = "SELECT idCurso, nombre, cupoMaximo, estudiantesInscritos FROM cursos";
                   $res_courses = mysqli_query($con, $sql_courses);
                   while ($row = mysqli_fetch_assoc($res_courses)) {
-                      $available_slots = $row['maxEstudiantes'] - $row['estudiantesMatriculados'];
+                      $available_slots = $row['cupoMaximo'] - $row['estudiantesInscritos'];
                       if ($available_slots > 0) {
-                        echo "<option value='{$row['idCurso']}'>{$row['nombreCurso']} - Cupos disponibles: $available_slots</option>";
+                        echo "<option value='{$row['idCurso']}'>{$row['nombre']} - Cupos disponibles: $available_slots</option>";
                       } else {
-                          echo "<option value='' disabled>{$row['nombreCurso']} - No hay cupos disponibles</option>";
+                          echo "<option value='' disabled>{$row['nombre']} - No hay cupos disponibles</option>";
                       }
                   }
                 ?>
@@ -158,20 +160,43 @@
           <div class="form-section">
             <h5>Contacto de Emergencia</h5>
             <div class="form-item box-item">
-              <input type="text" name="nombreContacto" placeholder="Nombre del Contacto de Emergencia" required>
+              <input type="text" name="telefonoEmergencia" placeholder="Teléfono del Contacto de Emergencia"
+                required>
+              <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+              <small class="errorNum"><i class="fa fa-asterisk" aria-hidden="true"></i> Debe ser un número</small>
+            </div>
+          </div>
+          <div class="form-section">
+            <h5>Datos de Facturación</h5>
+            <div class="form-item box-item">
+              <input type="text" name="nombresApellidosFacturacion" placeholder="Nombres para la factura" required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
             </div>
             <div class="form-item box-item">
-              <input type="text" name="telefonoContacto" placeholder="Teléfono del Contacto de Emergencia"
+              <input type="text" name="cedulaFacturacion" placeholder="Cedula de la factura" required>
+              <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+            </div>
+            <div class="form-item box-item">
+              <input type="text" name="emailFacturacion" placeholder="Correo de la factura" required>
+              <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+            </div>
+            <div class="form-item box-item">
+              <input type="text" name="telefonoFacturacion" placeholder="Teléfono de la factura"
                 required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
               <small class="errorNum"><i class="fa fa-asterisk" aria-hidden="true"></i> Debe ser un número</small>
             </div>
             <div class="form-item box-item">
-              <input type="text" name="relacionContacto" placeholder="Relación con el Estudiante"
+              <input type="text" name="direccionFacturacion" placeholder="Dirección de la factura"
                 required>
               <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> Campo requerido</small>
+              <small class="errorNum"><i class="fa fa-asterisk" aria-hidden="true"></i> Debe ser un número</small>
             </div>
+          </div>
+          <div class="navigation-buttons">
+            <button type="button" onclick="prevPage()">Anterior</button>
+            <button type="button" onclick="nextPage()">Siguiente</button>
+            <button type="submit" style="display: none;">Enviar</button>
           </div>
           <div class="form-item">
             <button type="submit" class="submit">Enviar</button>
@@ -183,6 +208,113 @@
       </footer>
     </section>
   </div>
+  <script>
+      let currentPage = 0;
+      const sections = document.querySelectorAll('.form-section');
+      const submitButton = document.querySelector('button[type="submit"]');
+      const nextButton = document.querySelector('.navigation-buttons button[onclick="nextPage()"]');
+      const prevButton = document.querySelector('.navigation-buttons button[onclick="prevPage()"]');
+     
+      function validateForm() {
+      // Reset all error messages
+      document.querySelectorAll('.errorReq').forEach(function(error) {
+        error.style.display = 'none';
+      });
+
+      let isValid = true;
+
+      // Validación de correo electrónico
+      const correo = document.getElementById("correoRepresentante").value;
+      const correoPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!correoPattern.test(correo)) {
+        document.getElementById("errorCorreo").style.display = "block";
+        isValid = false;
+      }
+
+      // Validación de teléfono del representante
+      const telefono = document.getElementById("telefono").value;
+      const telefonoPattern = /^\d{10}$/;
+      if (!telefonoPattern.test(telefono)) {
+        document.getElementById("errorTelefonoRepresentante").style.display = "block";
+        isValid = false;
+      }
+
+      // Validación de cédula del estudiante
+      const cedula = document.getElementById("cedulaEstudiante").value;
+      if (!cedulaPattern.test(cedula)) {
+        document.getElementById("errorCedula").style.display = "block";
+        isValid = false;
+      }
+
+      // Validación de teléfono de contacto de emergencia
+      const telefonoContacto = document.getElementById("telefonoContacto").value;
+      if (!telefonoPattern.test(telefonoContacto)) {
+        document.getElementById("errorTelefonoContacto").style.display = "block";
+        isValid = false;
+      }
+
+      return isValid;
+    }
+       else {
+        document.getElementById("errorTelefonoRepresentante").style.display = "none";
+      }
+
+      // Validación de cédula del estudiante
+      const cedulaPattern = /^\d{10}$/; // Assuming cedula should be 10 digits
+
+      const cedula = document.getElementById("cedulaEstudiante").value;
+      if (!cedulaPattern.test(cedula)) {
+
+        document.getElementById("errorCedula").style.display = "block";
+        isValid = false;
+      } else {
+        document.getElementById("errorCedula").style.display = "none";
+      }
+
+      // Validación de teléfono de contacto de emergencia
+      const telefonoContacto = document.getElementById("telefonoContacto").value;
+      if (!telefonoPattern.test(telefonoContacto)) {
+        document.getElementById("errorTelefonoContacto").style.display = "block";
+        isValid = false;
+      } else {
+        document.getElementById("errorTelefonoContacto").style.display = "none";
+      }
+
+      return isValid;
+  
+
+      function showPage(pageIndex) {
+        sections.forEach((section, index) => {
+          section.classList.toggle('active', index === pageIndex);
+        });
+        
+        prevButton.style.display = pageIndex > 0 ? 'inline' : 'none';
+        
+        if (pageIndex === sections.length - 1) {
+          nextButton.style.display = 'none';
+          submitButton.style.display = 'inline';
+        } else {
+          nextButton.style.display = 'inline';
+          submitButton.style.display = 'none';
+        }
+      }
+
+      function nextPage() {
+        if (currentPage < sections.length - 1) {
+          currentPage++;
+          showPage(currentPage);
+        }
+      }
+
+      function prevPage() {
+        if (currentPage > 0) {
+          currentPage--;
+          showPage(currentPage);
+        }
+      }
+
+      showPage(currentPage);
+  </script>
 
 </body>
 

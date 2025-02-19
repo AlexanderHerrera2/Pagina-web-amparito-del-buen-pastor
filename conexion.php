@@ -1,7 +1,7 @@
 <?php
     $user="root";
     $pass="";
-    $db="matriculacionap";
+    $db="matriculacionap2";
     $server="127.0.0.1";
     $port = 33065; 
  

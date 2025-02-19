@@ -11,31 +11,31 @@ include 'conexion.php'; // Incluir el archivo de conexión a la base de datos
 
 // Cambiar estado de la inscripción si se presiona el botón
 if (isset($_POST['update_status'])) {
-    $enrollment_id = $_POST['enrollment_id'];
-    $new_status = 'confirmed'; // Estado actualizado
+    $enrollment_id = $_POST['idMatricula'];
+    $new_status = 'confirmado'; // Estado actualizado
 
     // Actualizar el estado en la base de datos
-    $update_sql = "UPDATE enrollments SET enrollment_status = '$new_status' WHERE enrollment_id = '$enrollment_id'";
+    $update_sql = "UPDATE matriculas SET estadoMatricula = '$new_status' WHERE idMatricula = '$enrollment_id'";
     mysqli_query($con, $update_sql);
 }
 
 // Consultar los estudiantes matriculados
 $sql = "SELECT 
-            enrollments.enrollment_id AS enrollment_id,
-            students.first_name, 
-            students.last_name, 
-            students.email, 
-            students.cedula, 
-            courses.course_name, 
-            enrollments.enrollment_date, 
-            enrollments.enrollment_status,
-            parents_guardians.parent_first_name,
-            parents_guardians.parent_last_name,
-            parents_guardians.phone_number
-        FROM enrollments
-        JOIN students ON enrollments.student_id = students.student_id
-        JOIN courses ON enrollments.course_id = courses.course_id 
-        JOIN parents_guardians ON students.student_id = parents_guardians.student_id";
+            matriculas.idMatricula AS idMatricula,
+            estudiantes.nombresEstudiante, 
+            estudiantes.apellidosEstudiante, 
+            estudiantes.cedulaEstudiante, 
+            cursos.nombre, 
+            matriculas.fechaMatricula, 
+            matriculas.estado,
+            representantes.nombresrepresentante,
+            representantes.apellidosrepresentante,
+            representantes.telefonorepresentante
+        FROM matriculas
+        JOIN estudiantes ON matriculas.idEstudiante = estudiantes.idEstudiante
+        JOIN cursos ON matriculas.idCurso = cursos.idCurso
+        JOIN representantes ON estudiantes.idEstudiante = representantes.idEstudiante";
+
 
 $result = mysqli_query($con, $sql);
 
@@ -94,7 +94,6 @@ if (!$result) {
                 <tr>
                     <th>Nombre</th>
                     <th>Apellido</th>
-                    <th>Email</th>
                     <th>Cédula</th>
                     <th>Curso</th>
                     <th>Fecha de Inscripción</th>
@@ -110,22 +109,21 @@ if (!$result) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<tr>";
-                        echo "<td>" . $row['first_name'] . "</td>";
-                        echo "<td>" . $row['last_name'] . "</td>";
-                        echo "<td>" . $row['email'] . "</td>";
-                        echo "<td>" . $row['cedula'] . "</td>";
-                        echo "<td>" . $row['course_name'] . "</td>";
-                        echo "<td>" . $row['enrollment_date'] . "</td>";
-                        echo "<td>" . $row['enrollment_status'] . "</td>";
-                        echo "<td>" . $row['parent_first_name'] . "</td>";
-                        echo "<td>" . $row['parent_last_name'] . "</td>";
-                        echo "<td>" . $row['phone_number'] . "</td>";
+                        echo "<td>" . $row['nombresEstudiante'] . "</td>";
+                        echo "<td>" . $row['apellidosEstudiante'] . "</td>";
+                        echo "<td>" . $row['cedulaEstudiante'] . "</td>";
+                        echo "<td>" . $row['nombre'] . "</td>";
+                        echo "<td>" . $row['fechaMatricula'] . "</td>";
+                        echo "<td>" . $row['estado'] . "</td>";
+                        echo "<td>" . $row['nombresrepresentante'] . "</td>";
+                        echo "<td>" . $row['apellidosrepresentante'] . "</td>";
+                        echo "<td>" . $row['telefonorepresentante'] . "</td>";
 
                         // Botón para cambiar el estado
-                        if ($row['enrollment_status'] === 'pending') {
+                        if ($row['estado'] === 'pendiente') {
                             echo "<td>
                                     <form method='POST' action=''>
-                                        <input type='hidden' name='enrollment_id' value='" . $row['enrollment_id'] . "'>
+                                        <input type='hidden' name='idMatricula' value='" . $row['idMatricula'] . "'>
                                         <button type='submit' name='update_status'>Confirmar Pago</button>
                                     </form>
                                   </td>";
